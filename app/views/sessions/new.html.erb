@@ -25,10 +25,15 @@
             <div class="custom-control custom-checkbox mb-3">
               <input type="checkbox" class="custom-control-input" id="customCheck1">
               <label class="custom-control-label" for="customCheck1">Remember password</label>
+<!--              // TODO: we need to refactor this to make sure the check mark is working-->
+              <%#= f.label :remember_me, class: "checkbox inline" do %>
+                <%#= f.check_box :remember_me %>
+<!--                <span>Remember me on this computer</span>-->
+              <%# end %>
 
             </div>
 <!--            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>-->
-            <%= f.submit "Log in", class: "btn btn-lg btn btn-info btn-block text-uppercasey" %>
+            <%= f.submit "Log in", class: "btn btn-lg btn btn-info btn-block text-uppercase" %>
             <hr class="my-4">
 
 

@@ -1,8 +1,15 @@
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+
 <%= form_with(model: @user, local: true) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
 
   <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.text_field :name, class: 'form-control', autofocus: true %>
 
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control' %>
@@ -13,5 +20,11 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: "btn btn-info" %>
 <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

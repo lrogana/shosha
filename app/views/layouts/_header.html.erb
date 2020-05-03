@@ -1,5 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #005F69;">
-  <a class="navbar-brand" href="#">Shosha</a>
+  <!--<a class="navbar-brand" href="#">Shosha</a>-->
+  <a class='nav-brand'><%= link_to 'Shosha', root_path, class: 'navbar-brand' %></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,7 +21,11 @@
           <%= link_to "Log out", logout_path, method: :delete, class:"dropdown-item"%>
 
         </div>
-        <% end %>
+      <% else %>
+<!--        <li><%#= link_to "Log in", login_path %></li>-->
+        <a class='nav-item'><%= link_to 'Log in', login_path, class: 'nav-link' %></a>
+      <% end %>
+
       </li>
         </ul>
 
