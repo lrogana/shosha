@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tournaments</h1>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Contact Name</th>
+    <th scope="col">Contact Phone</th>
+    <th scope="col">Show</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tournaments.each do |tournament| %>
+    <tr>
+      <td><%= tournament.name %></td>
+      <td><%= tournament.tournament_date %></td>
+      <td><%= tournament.contact_name %></td>
+      <td><%= tournament.contact_phone_number %></td>
+<!--      <td><%#= tournament.user_id %></td>-->
+      <td><%= link_to 'Show', tournament %></td>
+      <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
+      <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

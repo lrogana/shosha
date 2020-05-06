@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_153331) do
+ActiveRecord::Schema.define(version: 2020_05_05_100154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "tournament_date"
+    t.string "contact_name"
+    t.string "contact_phone_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_tournaments_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_tournaments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -29,4 +41,5 @@ ActiveRecord::Schema.define(version: 2020_04_26_153331) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "tournaments", "users"
 end

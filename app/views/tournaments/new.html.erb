@@ -1,0 +1,7 @@
+<h1>New Tournament</h1>
+<%#= link_to 'Back', tournaments_path, class:'btn btn-light' %>
+<% provide(:title, 'New  Tournament') %>
+<% provide(:button_text, 'Create Tournament') %>
+<%= render 'form', tournament: @tournament %>
+
+
