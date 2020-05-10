@@ -25,5 +25,15 @@
   <%= @tournament.user_id %>
 </p>
 
+<p>
+  <strong>Tournament location:</strong>
+  <%= @tournament.address['street_address']%>
+  <%= @tournament.address['city']%>
+  <%= @tournament.address['state']%>
+  <%= @tournament.address['zip']%>
+
+</p>
+
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
 <%= link_to 'Back', tournaments_path %>
+
