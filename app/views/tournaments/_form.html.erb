@@ -36,7 +36,7 @@
             <!-- #### ADDRESS FIELD STARTS HERE #### -->
             <div class="fields">
 
-              <%= form.fields_for :address do |a| %>
+              <%= form.fields_for :address, OpenStruct.new(@tournament.address) do |a| %>
 
               <%= a.label :street_address %>
               <%= a.text_field :street_address, id: :street_address, class: 'form-control', required: true %>
