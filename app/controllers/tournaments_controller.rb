@@ -1,6 +1,7 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :show, :new]
+  before_action :correct_user,   only: [:destroy, :edit]
   # GET /tournaments
   # GET /tournaments.json
   def index
@@ -21,6 +22,7 @@ class TournamentsController < ApplicationController
 
   # GET /tournaments/1/edit
   def edit
+
   end
 
   # POST /tournaments
@@ -78,4 +80,23 @@ class TournamentsController < ApplicationController
                                          :user_id,
                                          address: [:street_address, :city, :state, :zip])
     end
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+  # Confirms the correct user.
+
+  def correct_user
+    @tournament = current_user.tournaments.find_by(id: params[:id])
+    redirect_to root_url if @tournament.nil?
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
 end

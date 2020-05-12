@@ -1,39 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="card border-info mb-3">
+  <div class="card-header">
+    <%= @tournament.name %>
+  </div>
+  <div class="card-body">
+    <!--<h5 class="card-title">Special title treatment</h5>-->
+    <p><strong>Tournament date:</strong> <%= @tournament.tournament_date %> </p>
+    <p class="card-text">  <strong>Contact name:</strong> <%= @tournament.contact_name %></p>
+    <p class="card-text">  <strong>Contact phone number:</strong> <%= @tournament.contact_phone_number %></p>
+    <p class="card-text">  <strong>Tournament location:</strong>
+      <%= @tournament.address['street_address']%>
+      <%= @tournament.address['city']%>
+      <%= @tournament.address['state']%>
+      <%= @tournament.address['zip']%></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tournament.name %>
-</p>
-
-<p>
-  <strong>Tournament date:</strong>
-  <%= @tournament.tournament_date %>
-</p>
-
-<p>
-  <strong>Contact name:</strong>
-  <%= @tournament.contact_name %>
-</p>
-
-<p>
-  <strong>Contact phone number:</strong>
-  <%= @tournament.contact_phone_number %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @tournament.user_id %>
-</p>
-
-<p>
-  <strong>Tournament location:</strong>
-  <%= @tournament.address['street_address']%>
-  <%= @tournament.address['city']%>
-  <%= @tournament.address['state']%>
-  <%= @tournament.address['zip']%>
-
-</p>
-
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>
-
+    <% if current_user?(@tournament.user) %>
+      <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+    <%end %>
+    <%= link_to 'Back', tournaments_path %>
+<!--    <a href="#" class="btn btn-primary">Go somewhere</a>-->
+  </div>
+</div>
