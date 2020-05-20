@@ -11,7 +11,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1
   # GET /tournaments/1.json
   def show
-
+    @tournament = Tournament.includes(:teams).find(params[:id])
   end
 
   # GET /tournaments/new

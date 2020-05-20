@@ -21,3 +21,26 @@
 <!--    <a href="#" class="btn btn-primary">Go somewhere</a>-->
   </div>
 </div>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Teams Registered(<%= @tournament.teams.count %>)</h1>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Team</th>
+    <th scope="col">Contact Name</th>
+    <th scope="col">Contact Phone</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tournament.teams.each do |team| %>
+    <tr>
+      <td><%= team.name %></td>
+      <td><%= team.team_contact_name %></td>
+      <td><%= team.team_contact_phone_number %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
