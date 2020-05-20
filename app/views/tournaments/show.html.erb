@@ -14,7 +14,8 @@
       <%= @tournament.address['zip']%></p>
 
     <% if current_user?(@tournament.user) %>
-      <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+      <%= link_to 'Edit', edit_tournament_path(@tournament), class: 'inactive'%> |
+
     <%end %>
     <%= link_to 'Back', tournaments_path %>
 <!--    <a href="#" class="btn btn-primary">Go somewhere</a>-->

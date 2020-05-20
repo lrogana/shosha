@@ -33,7 +33,8 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.save
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
+        format.html { redirect_to @tournament }
+        flash[:info] = 'Tournament was successfully created.'
         format.json { render :show, status: :created, location: @tournament }
       else
         format.html { render :new }
@@ -47,7 +48,8 @@ class TournamentsController < ApplicationController
   def update
     respond_to do |format|
       if @tournament.update(tournament_params)
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
+        format.html { redirect_to @tournament }
+        flash[:info] = 'Tournament was successfully updated'
         format.json { render :show, status: :ok, location: @tournament }
       else
         format.html { render :edit }

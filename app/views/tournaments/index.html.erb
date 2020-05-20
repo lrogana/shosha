@@ -1,41 +1,32 @@
-
-
-<h1>Tournaments</h1>
-<div class="table-responsive-sm">
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Date</th>
-    <th scope="col">Contact Name</th>
-    <th scope="col">Contact Phone</th>
-    <th scope="col">Tournament Location</th>
-    <th scope="col">Show</th>
-    <th scope="col">Edit</th>
-    <th scope="col">Delete</th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="album py-5">
+  <div class="container">
+<div class="row">
   <% @tournaments.each do |tournament| %>
-    <tr>
-      <td><%= tournament.name %></td>
-      <td><%= tournament.tournament_date %></td>
-      <td><%= tournament.contact_name %></td>
-      <td><%= tournament.contact_phone_number %></td>
-      <td>
-      <%= tournament.address['street_address']%>
-      <%= tournament.address['city']%>
-      <%= tournament.address['state']%>
-      <%= tournament.address['zip']%>
-      </td>
-<!--      <td><%#= tournament.user_id %></td>-->
+    <div class="col-md-4">
+      <div class="card mb-4 border-info">
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title"><%= tournament.name %></h5>
+            <p class="card-text"><%= tournament.address['state']%></p>
+            <% if current_user?(tournament.user) %>
+            <a><%= link_to 'Edit', edit_tournament_path(tournament) %></a> |
+            <%end %>
+            <td><%= link_to 'Show', tournament %></td>
 
 
-      <td><%= link_to 'Show', tournament %></td>
-      <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-      <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+
+          </div>
+
+          <div class="card-footer">
+
+            <small class="text-muted">Created <%= time_ago_in_words(tournament.created_at) %> ago.</small>
+<!--            Posted <%#= time_ago_in_words(tournament.created_at) %> ago.-->
+
+          </div>
+        </div>
+      </div >
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>
+  </div>
 </div>

@@ -19,6 +19,7 @@
           </node>
         </introspection-scope>
       </schema-mapping>
+      <load-sources>user_sources</load-sources>
     </data-source>
   </component>
 </project>
