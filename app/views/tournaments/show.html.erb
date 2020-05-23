@@ -1,3 +1,39 @@
+<!--<div class="container py-2">-->
+<!--  <h2 class="font-weight-light text-center text-muted py-3"><%#= @tournament.name %></h2>-->
+
+  <!-- timeline item 1 -->
+<!--  <div class="row">-->
+    <!-- timeline item 1 left dot -->
+<!--    <div class="col-auto text-center flex-column d-none d-sm-flex">-->
+<!--      <div class="row h-50">-->
+<!--        <div class="col">&nbsp;</div>-->
+<!--        <div class="col">&nbsp;</div>-->
+<!--      </div>-->
+<!--      <h5 class="m-2">-->
+<!--        <span class="badge badge-pill bg-success border">&nbsp;</span>-->
+<!--      </h5>-->
+<!--      <div class="row h-50">-->
+<!--        <div class="col border-right">&nbsp;</div>-->
+<!--        <div class="col">&nbsp;</div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!-- timeline item 1 event content -->
+<!--    <div class="col py-2">-->
+<!--      <div class="card">-->
+<!--        <div class="card-body">-->
+<!--          <div class="float-right text-muted"><%#= @tournament.tournament_date %></div>-->
+<!--          <h4 class="card-title text-muted"> <%#= @tournament.address['street_address']%>-->
+            <%#= @tournament.address['city']%>
+            <%#= @tournament.address['state']%>
+<!--            <%#= @tournament.address['zip']%></p></h4>-->
+<!--          <p class="card-text">  <strong>Contact name:</strong> <%#= @tournament.contact_name %></p>-->
+<!--          <p class="card-text">  <strong>Contact phone number:</strong> <%#= @tournament.contact_phone_number %></p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="card border-info mb-3">
   <div class="card-header">
     <%= @tournament.name %>
@@ -22,25 +58,74 @@
   </div>
 </div>
 
+
+<!--<div class="card" style="width: 18rem;">-->
+<!--  <div class="card-header">-->
+    <%#= @tournament.name %>
+<!--  </div>-->
+<!--  <ul class="list-group list-group-flush">-->
+<!--    <li class="list-group-item"><%#= @tournament.tournament_date %></li>-->
+<!--    <li class="list-group-item"><%#= @tournament.contact_name %></li>-->
+<!--    <li class="list-group-item"><%#= @tournament.contact_phone_number %></li>-->
+<!--    <li class="list-group-item"><%#= @tournament.address['street_address']%>-->
+      <%#= @tournament.address['city']%>
+      <%#= @tournament.address['state']%>
+<!--      <%#= @tournament.address['zip']%></li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
 <p id="notice"><%= notice %></p>
+<hr>
+<!--<h1><%#= @tournament.teams.count %> Teams registered</h1>-->
+<h2 class="font-weight-light text-center text-muted py-3"><%= @tournament.teams.count %> Teams registered</h2>
+<!--<table class="table table-hover">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th scope="col">Team</th>-->
+<!--    <th scope="col">Contact Name</th>-->
+<!--    <th scope="col">Contact Phone</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+  <%# @tournament.teams.each do |team| %>
+<!--    <tr>-->
+<!--      <td><%#= team.name %></td>-->
+<!--      <td><%#= team.team_contact_name %></td>-->
+<!--      <td><%#= team.team_contact_phone_number %></td>-->
+<!--    </tr>-->
+  <%# end %>
+<!--  </tbody>-->
+<!--</table>-->
+<%# @tournament.teams.each do |team| %>
+<!--<div class="card" style="width: 18rem;">-->
+<!--  <div class="card-header">-->
+    <%#= team.name %>
+<!--  </div>-->
+<!--  <ul class="list-group list-group-flush">-->
+<!--    <li class="list-group-item"><%#= team.team_contact_name %></li>-->
+<!--    <li class="list-group-item"><%#= team.team_contact_phone_number %></li>-->
+<!--    <li class="list-group-item">Vestibulum at eros</li>-->
+<!--  </ul>-->
+<!--</div>-->
+<%# end %>
+<% @tournament.teams.each do |team| %>
+<div class="container py-2">
+  <div class="row no-gutters">
+    <div class="col-sm py-2">
+      <div class="card border-success shadow">
+        <div class="card-body">
+<!--          <div class="float-right text-success small">Jan 10th 2019 8:30 AM</div>-->
+          <h4 class="card-title text-success"><%= team.name %></h4>
+          <p class="card-text"><strong> Contact:</strong> <%= team.team_contact_name %></p>
+          <p class="card-text"><strong>Phone: </strong><%= team.team_contact_phone_number %></p>
 
-<h1>Teams Registered(<%= @tournament.teams.count %>)</h1>
 
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col">Team</th>
-    <th scope="col">Contact Name</th>
-    <th scope="col">Contact Phone</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @tournament.teams.each do |team| %>
-    <tr>
-      <td><%= team.name %></td>
-      <td><%= team.team_contact_name %></td>
-      <td><%= team.team_contact_phone_number %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<% end %>
