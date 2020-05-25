@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <!--<h5 class="card-title">Special title treatment</h5>-->
-    <p><strong>Tournament date:</strong> <%= @tournament.tournament_date %> </p>
+    <p><strong>Tournament date:</strong> <%= @tournament.tournament_date.to_time.strftime('%B %e at %l:%M %p') %> </p>
     <p class="card-text">  <strong>Contact name:</strong> <%= @tournament.contact_name %></p>
     <p class="card-text">  <strong>Contact phone number:</strong> <%= @tournament.contact_phone_number %></p>
     <p class="card-text">  <strong>Tournament location:</strong>
