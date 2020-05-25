@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_214522) do
+ActiveRecord::Schema.define(version: 2020_05_25_201151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_214522) do
     t.bigint "tournament_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["tournament_id", "created_at"], name: "index_teams_on_tournament_id_and_created_at"
     t.index ["tournament_id"], name: "index_teams_on_tournament_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "tournaments", force: :cascade do |t|
@@ -55,5 +57,6 @@ ActiveRecord::Schema.define(version: 2020_05_20_214522) do
   end
 
   add_foreign_key "teams", "tournaments"
+  add_foreign_key "teams", "users"
   add_foreign_key "tournaments", "users"
 end
