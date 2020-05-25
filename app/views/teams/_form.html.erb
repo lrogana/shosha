@@ -1,3 +1,9 @@
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
 <%= form_with(model: team, local: true) do |form| %>
   <% if team.errors.any? %>
     <div id="error_explanation">
@@ -10,28 +16,32 @@
       </ul>
     </div>
   <% end %>
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'form-control', required: true %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
 
-  <div class="field">
+
+
     <%= form.label :team_contact_name %>
-    <%= form.text_field :team_contact_name %>
-  </div>
+    <%= form.text_field :team_contact_name, class: 'form-control', required: true %>
 
-  <div class="field">
+
+
     <%= form.label :team_contact_phone_number %>
-    <%= form.text_field :team_contact_phone_number %>
-  </div>
+    <%= form.text_field :team_contact_phone_number, class: 'form-control', required: true %>
 
-  <div class="field">
-    <%= form.label :tournament_id %>
-    <%= form.text_field :tournament_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :tournament_id %>
+    <%#= form.text_field :tournament_id %>
+<!--  </div>-->
+  <%= form.hidden_field :tournament_id %>
+
+  <%= form.submit yield(:button_text), class: "btn btn-info" %>
 <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :show, :new]
   # GET /teams
   # GET /teams.json
   def index
@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = Team.new
+    @team = Team.new(:tournament_id => params[:tournament_id])
   end
 
   # GET /teams/1/edit
@@ -71,4 +71,14 @@ class TeamsController < ApplicationController
     def team_params
       params.require(:team).permit(:name, :team_contact_name, :team_contact_phone_number, :tournament_id)
     end
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
 end

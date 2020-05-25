@@ -1,39 +1,3 @@
-<!--<div class="container py-2">-->
-<!--  <h2 class="font-weight-light text-center text-muted py-3"><%#= @tournament.name %></h2>-->
-
-  <!-- timeline item 1 -->
-<!--  <div class="row">-->
-    <!-- timeline item 1 left dot -->
-<!--    <div class="col-auto text-center flex-column d-none d-sm-flex">-->
-<!--      <div class="row h-50">-->
-<!--        <div class="col">&nbsp;</div>-->
-<!--        <div class="col">&nbsp;</div>-->
-<!--      </div>-->
-<!--      <h5 class="m-2">-->
-<!--        <span class="badge badge-pill bg-success border">&nbsp;</span>-->
-<!--      </h5>-->
-<!--      <div class="row h-50">-->
-<!--        <div class="col border-right">&nbsp;</div>-->
-<!--        <div class="col">&nbsp;</div>-->
-<!--      </div>-->
-<!--    </div>-->
-    <!-- timeline item 1 event content -->
-<!--    <div class="col py-2">-->
-<!--      <div class="card">-->
-<!--        <div class="card-body">-->
-<!--          <div class="float-right text-muted"><%#= @tournament.tournament_date %></div>-->
-<!--          <h4 class="card-title text-muted"> <%#= @tournament.address['street_address']%>-->
-            <%#= @tournament.address['city']%>
-            <%#= @tournament.address['state']%>
-<!--            <%#= @tournament.address['zip']%></p></h4>-->
-<!--          <p class="card-text">  <strong>Contact name:</strong> <%#= @tournament.contact_name %></p>-->
-<!--          <p class="card-text">  <strong>Contact phone number:</strong> <%#= @tournament.contact_phone_number %></p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="card border-info mb-3">
   <div class="card-header">
     <%= @tournament.name %>
@@ -78,6 +42,8 @@
 <p id="notice"><%= notice %></p>
 <hr>
 <!--<h1><%#= @tournament.teams.count %> Teams registered</h1>-->
+<%= link_to '+', new_team_path(:tournament_id => @tournament.id), class: 'btn btn-info float-right' %>
+
 <h2 class="font-weight-light text-center text-muted py-3"><%= @tournament.teams.count %> Teams registered</h2>
 <!--<table class="table table-hover">-->
 <!--  <thead>-->
@@ -109,6 +75,7 @@
 <!--  </ul>-->
 <!--</div>-->
 <%# end %>
+
 <% @tournament.teams.each do |team| %>
 <div class="container py-2">
   <div class="row no-gutters">
@@ -129,3 +96,4 @@
   </div>
 </div>
 <% end %>
+
