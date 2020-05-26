@@ -26,10 +26,10 @@ class TeamsController < ApplicationController
   def create
     # @team = Team.new(team_params)
     @team = current_user.teams.build(team_params)
-
+    @tournament = Tournament.find(team_params[:tournament_id])
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team}
+        format.html { redirect_to tournament_path(@tournament)}
         flash[:info] = 'Team was successfully created.'
         format.json { render :show, status: :created, location: @team }
       else
