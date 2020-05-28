@@ -71,7 +71,7 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :team_contact_name, :team_contact_phone_number, :tournament_id)
+      params.require(:team).permit(:name, :team_contact_name, :team_contact_phone_number, :tournament_id, :email)
     end
 
   # Confirms a logged-in user.
