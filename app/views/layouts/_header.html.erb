@@ -1,13 +1,17 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #005F69;">
   <!--<a class="navbar-brand" href="#">Shosha</a>-->
-  <a class='nav-brand'><%= link_to 'Shosha', root_path, class: 'navbar-brand' %></a>
+  <% if logged_in? %>
+  <a class='nav-brand'><%= link_to 'Shosha', tournaments_path, class: 'navbar-brand' %></a>
+    <%else %>
+    <a class='nav-brand'><%= link_to 'Shosha', root_path, class: 'navbar-brand' %></a>
+    <%end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav ml-auto">
       <% if logged_in? %>
-        <a class='nav-item'><%= link_to 'Home', root_path, class: 'nav-link' %></a>
+<!--        <a class='nav-item'><%#= link_to 'Home', root_path, class: 'nav-link' %></a>-->
 
         <a class='nav-item'><%= link_to 'Users', users_path, class: 'nav-link' %></a>
 
