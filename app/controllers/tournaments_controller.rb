@@ -78,7 +78,7 @@ class TournamentsController < ApplicationController
     def tournament_params
       params.require(:tournament).permit(:name, :tournament_date,
                                          :contact_name,
-                                         :contact_phone_number, :email,
+                                         :contact_phone_number, :email, :sport,
                                          :user_id,
                                          address: [:street_address, :city, :state, :zip])
     end

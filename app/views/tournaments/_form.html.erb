@@ -21,6 +21,12 @@
             <%= form.label :name %>
             <%= form.text_field :name, class: 'form-control', autofocus: true, required: true %>
 
+            <%= form.label :sport %>
+            <%#= form.select :sport, ['Rugby', 'Soccer', 'Softball', 'Darts'], class: 'form-control',  required: true %>
+
+            <%#= select_tag(:sport, options_for_select([ ['school', "school"], ['non-profit', "non-profit"]] ), {:class => 'form-control'})  %>
+            <%= form.select :sport, options_for_select(["Rugby","Soccer","Softball", "Darts"], @tournament.sport), {}, class: "form-control" %>
+
 
             <%= form.label :tournament_date %>
             <%= form.datetime_field :tournament_date, class: 'form-control', required: true %>

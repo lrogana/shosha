@@ -10,7 +10,8 @@
             <div class="card ">
               <div class="card-body">
                 <h5 class="card-title"><%= tournament.name %></h5>
-                <p class="card-text"><%= tournament.address['state'] %></p>
+<!--                <p class="card-text"><%#= tournament.address['state'] %></p>-->
+                <p class="card-text"><%= tournament.sport %></p>
                 <% if current_user?(tournament.user) %>
                   <a><%= link_to 'Edit', edit_tournament_path(tournament) %></a> |
                 <% end %>
