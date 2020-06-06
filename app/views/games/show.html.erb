@@ -1,0 +1,26 @@
+
+<div class="card w-40">
+  <div class="card-body">
+<table class="table table-borderless">
+  <thead>
+  <tr>
+    <td scope="col"><%= @game.location %></td>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="width: 65%" colspan="2">Mark</td>
+    <td><%= @game.first_team_score %></td>
+    <td style="border-left: 1px solid #cdd0d4;"><%= @game.start.to_time.strftime('%B %e at %l:%M %p') %></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Larry the Bird</td>
+    <td><%= @game.second_team_score %></td>
+    <td style="border-left: 1px solid #cdd0d4;"></td>
+  </tr>
+  </tbody>
+</table>
+  </div>
+</div>

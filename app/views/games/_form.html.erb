@@ -1,0 +1,56 @@
+<%= form_with(model: game, local: true) do |form| %>
+  <% if game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+        <% game.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :start %>
+  <%= form.datetime_field :start, class: 'form-control', required: true %>
+
+  <%= form.label :end %>
+  <%= form.datetime_field :end, class: 'form-control', required: true %>
+
+  <%= form.label :location %>
+  <%= form.text_field :location, class: 'form-control', required: true %>
+
+
+    <%= form.label :first_team_id %>
+    <%= form.number_field :first_team_id, class: 'form-control', required:true %>
+
+
+
+    <%= form.label :second_team_id %>
+    <%= form.number_field :second_team_id, class: 'form-control', required:true %>
+
+
+
+    <%= form.label :winning_team %>
+    <%= form.number_field :winning_team, class: 'form-control' %>
+
+
+
+    <%= form.label :first_team_score %>
+    <%= form.number_field :first_team_score, class: 'form-control' %>
+
+
+
+    <%= form.label :second_team_score %>
+    <%= form.number_field :second_team_score, class: 'form-control' %>
+
+
+
+    <%= form.label :tournament_id %>
+    <%= form.text_field :tournament_id, class: 'form-control' %>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

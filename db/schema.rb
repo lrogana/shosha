@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_160602) do
+ActiveRecord::Schema.define(version: 2020_06_02_193230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.string "location"
+    t.integer "first_team_id"
+    t.integer "second_team_id"
+    t.integer "winning_team"
+    t.integer "first_team_score"
+    t.integer "second_team_score"
+    t.bigint "tournament_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tournament_id"], name: "index_games_on_tournament_id"
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
@@ -59,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_160602) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "games", "tournaments"
   add_foreign_key "teams", "tournaments"
   add_foreign_key "teams", "users"
   add_foreign_key "tournaments", "users"
